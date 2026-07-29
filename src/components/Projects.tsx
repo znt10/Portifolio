@@ -2,40 +2,9 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import SectionHeading from "./SectionHeading";
-
-const projects = [
-  {
-    title: "MatchCarreira",
-    description:
-      "Plataforma de recrutamento que conecta candidatos e empresas. Cadastro de vagas, perfis profissionais e autenticação JWT.",
-    tech: ["Next.js", "React", "Tailwind CSS", "API Routes", "JWT"],
-    live: "https://nextjs-fullstack-rosy.vercel.app",
-    github: "https://github.com/znt10/matchcarreira",
-    image: "/projects/matchcarreira.png",
-    number: "01",
-  },
-  {
-    title: "Unistock",
-    description:
-      "Sistema web de gerenciamento de estoque, produtos e pedidos. Arquitetura separada com frontend e backend independentes.",
-    tech: ["Next.js", "React", "Tailwind CSS", "Django REST", "Python"],
-    live: "https://5-periodo.vercel.app",
-    github: "https://github.com/znt10/Unistock_Front",
-    image: "/projects/unistock.png",
-    number: "02",
-  },
-  {
-    title: "Site de Nenêm",
-    description:
-      "Site personalizado desenvolvido com HTML, hospedado na Vercel.",
-    tech: ["HTML", "CSS", "JavaScript", "Vercel"],
-    live: "https://site-de-nenem-production.up.railway.app",
-    github: "https://github.com/znt10/Site-de-nenem",
-    image: "/projects/site-nenem.png",
-    number: "03",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function Projects() {
   return (
@@ -82,9 +51,11 @@ export default function Projects() {
                   <span className="font-mono text-xs text-accent tracking-[0.3em]">
                     PROJETO {project.number}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-light mt-2 mb-4 group-hover:text-accent transition-colors duration-500">
-                    {project.title}
-                  </h3>
+                  <Link href={`/projetos/${project.slug}`}>
+                    <h3 className="text-2xl sm:text-3xl font-light mt-2 mb-4 group-hover:text-accent transition-colors duration-500">
+                      {project.title}
+                    </h3>
+                  </Link>
                   <p className="text-muted leading-relaxed mb-6 font-light">
                     {project.description}
                   </p>
