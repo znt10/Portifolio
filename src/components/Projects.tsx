@@ -34,6 +34,7 @@ export default function Projects() {
                       src={project.image}
                       alt={`Screenshot do projeto ${project.title}`}
                       fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
                       className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-background/30 group-hover:bg-transparent transition-all duration-500" />
