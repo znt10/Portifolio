@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 
@@ -36,6 +37,24 @@ export default function ProjectDetail({ project }: { project: Project }) {
           <p className="text-muted leading-relaxed font-light text-lg">
             {project.overview}
           </p>
+
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block relative aspect-[16/10] rounded-sm overflow-hidden border border-border hover:border-accent/40 transition-all duration-700 mt-10"
+          >
+            <Image
+              src={project.image}
+              alt={`Screenshot do projeto ${project.title}`}
+              fill
+              sizes="(min-width: 768px) 768px, 100vw"
+              className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-background/30 group-hover:bg-transparent transition-all duration-500" />
+            <div className="absolute top-4 left-4 w-8 h-8 border-l border-t border-white/20 group-hover:border-accent/60 transition-colors duration-500" />
+            <div className="absolute bottom-4 right-4 w-8 h-8 border-r border-b border-white/20 group-hover:border-accent/60 transition-colors duration-500" />
+          </a>
 
           <div className="flex flex-wrap gap-2 mt-8">
             {project.tech.map((t) => (
